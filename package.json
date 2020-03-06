@@ -12,7 +12,7 @@
     "share": "npm-run-all --parallel start ngrok", 
     "lint": "esw webpack.config.*, src, buildScripts --color", 
     "lint:watch": "npm run lint -- --watch", 
-    "test": "mocha --reporter spec buildScripts/testSetup.js \"src/**/*.test.js\"", 
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"", 
     "test:watch": "npm run test -- --watch"
   },
   "author": "Cory House",
