@@ -55,6 +55,9 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 - helper library: JSDOM
 - testing environment: Node (testing alongside src files upon save)
 
-9. JS Continuous Intergration (CI) 
+9. JS Continuous Intergration (CI) Testing for Production 
 - config file: /.travis.yml
-- CI servers: Travis (Linux/Mac) & Appveyor (Windows)
+- CI servers: Travis (Linux/Mac) 
+- config file: 
+- CI servers: Appveyor (Windows)
+- Git environment: git status > git add . > git commit -m "<msg>" > git push 
