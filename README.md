@@ -20,7 +20,7 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 4. Tasks Automation 
 - config file: /package.json ("scripts":{})
 - automation: npm scripts (use tools directly & no separate plugins)
-- scripts options: npm run <start/security/fix/share/lint/test/mock-data/mock-api/build>
+- scripts options: npm run <start/security/fix/share/lint/test/mock-data/mock-api/build/deploy>
 
 5. JS Versions Transpiling (post-2015: ES6/ES7/ES8 => post-2009: ES5)
 - config file: /.babelrc (non npm specific)  
@@ -97,12 +97,30 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 - bundle extracting css from html: /webpack.config.prod.js (plugin: [MiniCssExtractPlugin])
 - JS error logging: Track.js (recommended but optional: due to $ PRICING COST $) 
 
-14. Production Deployment & Updates
-- separating projects: 
+14. Production Deployment 
+- Surge UI config file: /package.json ("scripts":{})
+- Heroku API starter file: /app.json 
+- Heroku API starter file: /Procfile  
+- Heroku API link file: /src/api/baseUrl.js
+- Heroku cmds: 
+    + heroku login 
+    + heroku create 
+    + heroku git:remote -a <still-garden-98048>
+    + git push heroku master
+- separating projects approach: 
     + frontend static: UI + mock API 
     + backend non-static: API 
 - cloud hosting: Surge (host UI) + Heroku (host API)
     + static: Github/Netlify/Surge
     + non-static: AWS/MS Azure/Google Could/Heroku/Firebase
 
+15. Production Ready
+- 1. development: npm start 
+- 2. production build: npm run build
+- 3. production deploy: npm run deploy
+
+16. Production Updates: GitHub vs. NPM
+- 1. Host on Github
+- 2. Fork <starter kit> for new project
+- 3. Pull Changes from master
 
