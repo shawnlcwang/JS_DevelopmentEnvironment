@@ -1,4 +1,6 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { truncate } from 'fs';
 
 // webpack configuration 
 export default {
@@ -35,5 +37,11 @@ export default {
         noInfo: true,
     },
     // configure additonal plugins 
-    plugins: []
+    plugins: [
+        // Create HTML file that includes reference to bundle.js
+        new HtmlWebpackPlugin({
+            template: 'src/index.html',
+            inject: true
+        })
+    ]
 }

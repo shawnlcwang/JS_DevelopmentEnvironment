@@ -8,6 +8,7 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 - config file: /package.json (customizable)  
 - dir: node_modules (npm i / npm install: install all the JS dev-env npm packages) 
 - manager: Node Package Manager (npm)
+- package updates: npm outdated => npm update / npm install <package>@latest
 
 3. Development Web Server
 - starter file: /buildScripts/srcServer.js (boiler plate) 
@@ -19,7 +20,7 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 4. Tasks Automation 
 - config file: /package.json ("scripts":{})
 - automation: npm scripts (use tools directly & no separate plugins)
-- scripts: npm run <start/security/fix/share/lint>
+- scripts options: npm run <start/security/fix/share/lint/test/mock-data/mock-api/build>
 
 5. JS Versions Transpiling (post-2015: ES6/ES7/ES8 => post-2009: ES5)
 - config file: /.babelrc (non npm specific)  
@@ -29,6 +30,7 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 
 6. JS Modules Bundling (bundle different JS modules => single executable browser JS file )
 - config file: /webpack.config.dev.js (webpack bundler configuration)
+- config file: /webpack.config.prod.js
 - starter file: /src/index.js
 - starter file: /src/index.css
 - module format: ES6 modules 
@@ -72,7 +74,35 @@ JavaScript Node.js Development Environment: Node Application Boiler Plate/Starte
 - potential browser polyfill: https://polyfill.io/
 
 11. Mock HTTP Calls APIs for Prototyping/Testing 
-- Mock schema: JSON Schema Faker 
+- starter file: /buildScripts/mockDataSchema.js
+- starter file: /buildScripts/mockData.js
+- starter database: /src/api/db.json
+- Mock schema: JSON Schema Faker (npm install faker)
 - Mock data: JSON Schema Faker (faker.js/chance.js/randexp.js)
-- Mock HTTP calls API: JSON Server
+- starter file: /src/api/baseUrl.js (/?useMockApi=true)
+- Mock HTTP calls API: JSON Server (allow data manipulation get/delete)
 - alternative mock API: Nock/static JSON/Express
+
+12. Project Structure 
+- files organization: by feature (NOT by file type)
+
+13. Production Build 
+- config file: /webpack.config.prod.js (webpack bundler configuration)
+- starter file: build.js
+- starter file: distServer.js
+- minification: /webpack.config.prod.js (optimization:[minimize])
+- dynamic HTML: /webpack.config.prod.js (plugin: [HtmlWebpackPlugin])
+- bundle splitting: /webpack.config.prod.js (optimization:[splitChunks])
+- cache busting: /webpack.config.prod.js (plugin: [WebpackMd5Hash])
+- bundle extracting css from html: /webpack.config.prod.js (plugin: [MiniCssExtractPlugin])
+- JS error logging: Track.js (recommended but optional: due to $ PRICING COST $) 
+
+14. Production Deployment & Updates
+- separating projects: 
+    + frontend static: UI + mock API 
+    + backend non-static: API 
+- cloud hosting: Surge (host UI) + Heroku (host API)
+    + static: Github/Netlify/Surge
+    + non-static: AWS/MS Azure/Google Could/Heroku/Firebase
+
+

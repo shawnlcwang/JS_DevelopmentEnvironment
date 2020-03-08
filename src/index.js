@@ -1,5 +1,5 @@
-import {getUsers} from './api/userApi'; 
-// import './index.css'; 
+import {getUsers, deleteUsers} from './api/userApi'; 
+import './index.css'; 
 // import numeral from 'numeral'; 
 
 // /* eslint-disable no-console*/
@@ -23,4 +23,18 @@ getUsers().then(result => {
     });
 
     global.document.getElementById('users').innerHTML = usersBody;
+
+    const deleteLinks = global.document.getElementsByClassName('deleteUser'); 
+
+    // MUST use array.from to create real array from a DOM collection since getElementByClassName returns only "array like" objects
+    Array.from(deleteLinks, link => {
+        link.onclick = function (event){
+            const element = event.target; 
+            event.preventDefault(); 
+            deleteUsers(element.attributes["data-id"].value); 
+            const row = element.parentNode.parentNode; 
+            row.parentNode.removeChild(row); 
+        }; 
+    }); 
+
 });
